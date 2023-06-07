@@ -1,13 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { OpenseaService } from "@/services";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-type Data = {
-  name: string
-}
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const service = new OpenseaService();
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
+  const data = await service.getCollectionRes("kaiju-kingz");
+  console.log(JSON.stringify(data));
+  res.status(200).json({ data });
 }
