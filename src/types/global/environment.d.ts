@@ -5,5 +5,6 @@ declare namespace NodeJS {
     FIREBASE_ADMIN_SDK_CLIENT_EMAIL: string;
     FIREBASE_ADMIN_SDK_PRIVATE_KEY: string;
     FIREBASE_DATABASE_URL: string;
+    MONGO_URL: string;
   }
 }

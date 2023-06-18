@@ -1,36 +1,43 @@
-export interface ICollectionDb {
+export interface INftCollection {
   name: string;
   slug: string;
   imageUrl: string;
-  twitterUsername: string;
-  instagramUsername: string;
-  discordUrl: string;
-  wikiUrl: string;
-  externalUrl: string;
+  wikiUrl?: string;
+  externalUrl?: string;
   description: string;
-  primaryAssetContracts: IPrimaryAssetContract[];
   traits: {
     [key: string]: ITrait;
   };
-  stats: {
-    totalSupply: number;
-    averagePrice: number;
-    floorPrice: number;
-    numOwners: number;
-    marketCap: number;
-  };
+  totalSupply: number;
+  averagePrice: number;
+  floorPrice: number;
+  numOwners: number;
+  marketCap: number;
+  contractAddress: string;
+  twitterUsername?: string;
+  instagramUsername?: string;
+  discordUrl?: string;
+  sellerFee: number;
+  isCreatorFeeEnforced: boolean;
+}
+
+export interface INftCollectionRes {
+  primaryAssetContracts: { address: string }[];
+  twitterUsername?: string;
+  instagramUsername?: string;
+  discordUrl?: string;
+  wikiUrl?: string;
   fees: {
     sellerFees: { [key: string]: number };
     openseaFees: { [key: string]: number };
+  };
+  isCreatorFeeEnforced: boolean;
+  createdDate?: string;
+  traits: {
+    [key: string]: ITrait;
   };
 }
 
 interface ITrait {
   [key: string]: number;
 }
-
-export interface IPrimaryAssetContract {
-  address: string;
-}
-
-export interface ICollection {}
