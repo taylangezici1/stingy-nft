@@ -8,10 +8,15 @@ import { INftCollection } from "@/types";
 import { MongoCollectionService } from "@/services/mongo/mongoCollectionService";
 import { MongoNftCollectionsService } from "@/services/mongo/nftCollections/mongoNftCollectionsService";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const mongoService = new MongoNftCollectionsService();
   const openseaService = new OpenseaService();
   const collection = await openseaService.getCollection("kaiju-kingz");
-  await mongoService.create({ ...collection });
+  await mongoService.createOne(collection);
+
+  await openseaService.fetchNfts(collection);
   res.status(200).json({ data: "anan" });
 }

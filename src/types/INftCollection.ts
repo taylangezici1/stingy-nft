@@ -1,4 +1,5 @@
 export interface INftCollection {
+  _id: string;
   name: string;
   slug: string;
   imageUrl: string;
@@ -6,7 +7,7 @@ export interface INftCollection {
   externalUrl?: string;
   description: string;
   traits: {
-    [key: string]: ITrait;
+    [key: string]: INftCollectionTraits;
   };
   totalSupply: number;
   averagePrice: number;
@@ -19,6 +20,8 @@ export interface INftCollection {
   discordUrl?: string;
   sellerFee: number;
   isCreatorFeeEnforced: boolean;
+  assetsFetched: boolean;
+  assetsLastFetchedAt?: Date;
 }
 
 export interface INftCollectionRes {
@@ -34,10 +37,10 @@ export interface INftCollectionRes {
   isCreatorFeeEnforced: boolean;
   createdDate?: string;
   traits: {
-    [key: string]: ITrait;
+    [key: string]: INftCollectionTraits;
   };
 }
 
-interface ITrait {
+interface INftCollectionTraits {
   [key: string]: number;
 }

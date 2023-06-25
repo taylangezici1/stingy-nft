@@ -1,8 +1,10 @@
 import { INftCollection } from "@/types";
 import { MongoCollectionService } from "../mongoCollectionService";
-import { prop } from "@typegoose/typegoose";
+import { modelOptions, prop } from "@typegoose/typegoose";
 
 class NftCollections implements INftCollection {
+  @prop({ index: true, unique: true, required: true })
+  public _id: string;
   @prop()
   public name: string;
   @prop({ index: true })
@@ -47,10 +49,21 @@ class NftCollections implements INftCollection {
   public createdAt: Date;
   @prop({ default: Date.now() })
   public lastUpdatedAt: Date;
+  @prop()
+  public assetsFetched: boolean = false;
+  @prop()
+  public assetsLastFetchedAt?: Date;
 }
 
 export class MongoNftCollectionsService extends MongoCollectionService<INftCollection> {
   constructor() {
     super(NftCollections);
+  }
+
+  public async updateAssetsFetched(id: string) {
+    await this.updateOne(id, {
+      assetsFetched: true,
+      assetsLastFetchedAt: new Date()
+    });
   }
 }
