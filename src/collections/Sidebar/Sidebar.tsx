@@ -1,20 +1,25 @@
+import { Image } from "@/components/Image";
 import * as S from "./elements";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useState, Fragment } from "react";
 
 const Sidebar: React.FC = ({ ...props }) => {
-  return <S.SidebarContainer>asdasdsad</S.SidebarContainer>;
+  return (
+    <S.SidebarContainer>
+      <S.SidebarHeader>
+        <Image src="/logo.png" height={45} width={45} objectFit="contain" />
+        <S.SidebarHeaderTitle>STINGY</S.SidebarHeaderTitle>
+      </S.SidebarHeader>
+      <S.SidebarBody>
+        <S.SidebarList>
+          <S.SidebarListItem>
+            <S.SidebarButton variant="text" color="primary">
+              <S.SidebarIcon />
+              <S.MenuText>Dashboard</S.MenuText>
+            </S.SidebarButton>
+          </S.SidebarListItem>
+        </S.SidebarList>
+      </S.SidebarBody>
+    </S.SidebarContainer>
+  );
 };
 
 export default Sidebar;

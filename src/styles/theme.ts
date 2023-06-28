@@ -20,7 +20,7 @@ export const theme: DefaultTheme = {
     "brown-light-2": "#B37840",
     grey: "#EDF1F7",
     "grey-dark": "#C5CEE0",
-    "price-grey": "#7A7A7A",
+    "grey-darker": "#7A7A7A",
     "price-light": "#919EAB",
     "custom-grey": "#DEDEDE",
     "custom-black": "#545454",
