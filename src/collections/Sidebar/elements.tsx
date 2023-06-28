@@ -1,6 +1,6 @@
 import { Typography } from "@/components";
 import { Button } from "@mui/material";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
 export const SidebarContainer = styled.div`

@@ -1,7 +1,14 @@
 import { Image } from "@/components/Image";
 import * as S from "./elements";
+import { useRouter } from "next/router";
 
 const Sidebar: React.FC = ({ ...props }) => {
+  const router = useRouter();
+
+  const handleNavigate = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <S.SidebarContainer>
       <S.SidebarHeader>
@@ -11,7 +18,11 @@ const Sidebar: React.FC = ({ ...props }) => {
       <S.SidebarBody>
         <S.SidebarList>
           <S.SidebarListItem>
-            <S.SidebarButton variant="text" color="primary">
+            <S.SidebarButton
+              variant="text"
+              color="primary"
+              onClick={() => handleNavigate("dashboard")}
+            >
               <S.SidebarIcon />
               <S.MenuText>Dashboard</S.MenuText>
             </S.SidebarButton>

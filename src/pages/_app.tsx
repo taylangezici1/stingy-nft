@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <main className={`${font.className}`}>
+        <main style={{ display: "flex" }} className={`${font.className}`}>
           <Sidebar />
           <Component {...pageProps} />
         </main>
