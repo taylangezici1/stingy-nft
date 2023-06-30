@@ -14,9 +14,9 @@ export default async function handler(
 ) {
   const mongoService = new MongoNftCollectionsService();
   const openseaService = new OpenseaService();
-  const collection = await openseaService.getCollection("proof-moonbirds");
+  const collection = await openseaService.getCollection("kaiju-kingz");
   await mongoService.createOne(collection);
 
-  await openseaService.fetchNfts(collection);
+  const nfts = await openseaService.getNfts(collection);
   res.status(200).json({ data: "anan" });
 }

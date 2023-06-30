@@ -6,5 +6,5 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ children, ...props }) => {
-  return <S.Container>{children}</S.Container>;
+  return <S.Container {...props}>{children}</S.Container>;
 };

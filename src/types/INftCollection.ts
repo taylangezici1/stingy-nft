@@ -1,5 +1,5 @@
 export interface INftCollection {
-  _id: string;
+  id: string;
   name: string;
   slug: string;
   imageUrl: string;

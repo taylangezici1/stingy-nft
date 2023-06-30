@@ -4,6 +4,7 @@ import { MyCollectionsCard } from "@/collections/Cards";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { INftCollection } from "@/types";
+import { Card } from "@/components";
 
 export const DashboardPage: React.FC = () => {
   const { data, isLoading, isError } = useQuery(["collections"], async () => {
@@ -23,9 +24,14 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <S.Container>
-      {data.map((collection) => (
-        <MyCollectionsCard key={collection.slug} collection={collection} />
-      ))}
+      <S.MyCollectionsContainer>
+        <S.MyCollectionsHeader>
+          <S.MyCollectionsTitle>My Collections</S.MyCollectionsTitle>
+        </S.MyCollectionsHeader>
+        {data.map((collection) => (
+          <MyCollectionsCard key={collection.slug} collection={collection} />
+        ))}
+      </S.MyCollectionsContainer>
     </S.Container>
   );
 };

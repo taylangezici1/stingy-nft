@@ -9,6 +9,7 @@ export interface INft {
   tokenId: string | null;
   traits: INftTrait[];
   owner?: IOpenseaAccount;
+  collectionId: string;
 }
 
 export interface INftTrait {

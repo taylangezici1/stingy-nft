@@ -1,13 +1,13 @@
 import { INftCollection, INftCollectionRes } from "@/types";
 import { OpenSeaCollection } from "opensea-js/lib/types";
-import { nanoid } from "nanoid";
+import { uuid } from "uuidv4";
 
 export const mapNftCollection = (
   collection: OpenSeaCollection,
   collectionRes: INftCollectionRes
 ): INftCollection => {
   return {
-    _id: nanoid(),
+    id: uuid(),
     name: collection.name,
     slug: collection.slug,
     imageUrl: collection.imageUrl,
@@ -26,6 +26,6 @@ export const mapNftCollection = (
     discordUrl: collectionRes.discordUrl,
     sellerFee: Object.values(collectionRes.fees.sellerFees)[0] / 100,
     isCreatorFeeEnforced: collectionRes.isCreatorFeeEnforced,
-    assetsFetched: false
+    assetsFetched: false,
   };
 };

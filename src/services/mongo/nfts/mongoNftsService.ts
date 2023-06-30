@@ -3,6 +3,8 @@ import { MongoCollectionService } from "../mongoCollectionService";
 import { INft } from "@/types";
 
 class Nfts implements INft {
+  @prop({ index: true })
+  public collectionId: string;
   @prop()
   public name: string;
   @prop()
