@@ -19,10 +19,11 @@ export const MyCollectionsHeader = styled.div`
   text-align: center;
 `;
 
-export const MyCollectionsTitle = styled(Typography.h3)``;
-
 export const MyCollectionsBody = styled.div`
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 20px;
 `;
+
+export const MyCollectionsTitle = styled(Typography.h3)``;

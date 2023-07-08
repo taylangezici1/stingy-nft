@@ -1,15 +1,32 @@
 import styled from "styled-components";
-import { Card } from "@/components";
-export { CardActionArea, Card, CardContent, CardMedia } from "@mui/material";
+import { Card, Image, Typography } from "@/components";
 
-export const Container = styled(Card)`
-  max-width: 170px;
-  width: 100%;
-  height: fit-content;
+export const CollectionCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const CardHeader = styled.div`
+export const CollectionImageWrapper = styled.div`
+  margin-top: 16px;
+`;
+
+export const CollectionImage = styled(Image)`
+  border-radius: 50%;
+`;
+
+export const CollectionCardBody = styled.div``;
+
+export const CollectionCardTitle = styled(Typography.bodyM)``;
+
+export const CollectionCardFooter = styled.div`
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
+`;
+
+export const CollectionCardStatKey = styled(Typography.bodyS)``;
+
+export const CollectionCardStatValue = styled(Typography.bodyS)`
+  color: ${({ theme }) => theme.colors["orange-dark"]};
 `;

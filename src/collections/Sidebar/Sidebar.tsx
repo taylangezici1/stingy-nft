@@ -1,6 +1,7 @@
 import { Image } from "@/components/Image";
 import * as S from "./elements";
 import { useRouter } from "next/router";
+import { ConnectWalletButton } from "../Buttons";
 
 const Sidebar: React.FC = ({ ...props }) => {
   const router = useRouter();
@@ -29,6 +30,7 @@ const Sidebar: React.FC = ({ ...props }) => {
           </S.SidebarListItem>
         </S.SidebarList>
       </S.SidebarBody>
+      <ConnectWalletButton />
     </S.SidebarContainer>
   );
 };

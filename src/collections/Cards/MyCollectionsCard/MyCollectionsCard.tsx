@@ -1,5 +1,4 @@
 import * as S from "./elements";
-import Typography from "@mui/material/Typography";
 import { INftCollection } from "@/types";
 
 interface MyCollectionsCardProps {
@@ -9,26 +8,23 @@ interface MyCollectionsCardProps {
 export const MyCollectionsCard: React.FC<MyCollectionsCardProps> = ({
   collection,
 }) => {
-  const { imageUrl, name } = collection;
+  const { imageUrl, name, floorPrice } = collection;
   return (
-    <S.Container>
-      <S.Card>
-        <S.CardActionArea>
-          <S.CardMedia
-            component="img"
-            height="140"
-            image={imageUrl}
-            alt={name}
-          />
-          <S.CardContent>
-            <S.CardHeader>
-              <Typography gutterBottom variant="h5" component="div">
-                {name}
-              </Typography>
-            </S.CardHeader>
-          </S.CardContent>
-        </S.CardActionArea>
-      </S.Card>
-    </S.Container>
+    <S.CollectionCard>
+      <S.CollectionImageWrapper>
+        <S.CollectionImage
+          src={imageUrl}
+          height={75}
+          width={75}
+        ></S.CollectionImage>
+      </S.CollectionImageWrapper>
+      <S.CollectionCardBody>
+        <S.CollectionCardTitle>{name}</S.CollectionCardTitle>
+      </S.CollectionCardBody>
+      <S.CollectionCardFooter>
+        <S.CollectionCardStatKey>Floor Price</S.CollectionCardStatKey>
+        <S.CollectionCardStatValue>{floorPrice} ETH</S.CollectionCardStatValue>
+      </S.CollectionCardFooter>
+    </S.CollectionCard>
   );
 };
