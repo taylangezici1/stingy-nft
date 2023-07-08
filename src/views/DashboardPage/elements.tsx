@@ -20,3 +20,9 @@ export const MyCollectionsHeader = styled.div`
 `;
 
 export const MyCollectionsTitle = styled(Typography.h3)``;
+
+export const MyCollectionsBody = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+`;

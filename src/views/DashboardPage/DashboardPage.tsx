@@ -28,9 +28,11 @@ export const DashboardPage: React.FC = () => {
         <S.MyCollectionsHeader>
           <S.MyCollectionsTitle>My Collections</S.MyCollectionsTitle>
         </S.MyCollectionsHeader>
-        {data.map((collection) => (
-          <MyCollectionsCard key={collection.slug} collection={collection} />
-        ))}
+        <S.MyCollectionsBody>
+          {data.map((collection) => (
+            <MyCollectionsCard key={collection.slug} collection={collection} />
+          ))}
+        </S.MyCollectionsBody>
       </S.MyCollectionsContainer>
     </S.Container>
   );
