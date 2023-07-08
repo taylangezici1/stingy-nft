@@ -19,4 +19,11 @@ export const MyCollectionsHeader = styled.div`
   text-align: center;
 `;
 
+export const MyCollectionsBody = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
 export const MyCollectionsTitle = styled(Typography.h3)``;

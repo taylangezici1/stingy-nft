@@ -1,10 +1,32 @@
 import styled from "styled-components";
-import { Card } from "@/components";
+import { Card, Image, Typography } from "@/components";
 
-export const Container = styled.div`
-  padding: 8px;
+export const CollectionCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const CardHeader = styled.div`
-  text-align: center;
+export const CollectionImageWrapper = styled.div`
+  margin-top: 16px;
+`;
+
+export const CollectionImage = styled(Image)`
+  border-radius: 50%;
+`;
+
+export const CollectionCardBody = styled.div``;
+
+export const CollectionCardTitle = styled(Typography.bodyM)``;
+
+export const CollectionCardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CollectionCardStatKey = styled(Typography.bodyS)``;
+
+export const CollectionCardStatValue = styled(Typography.bodyS)`
+  color: ${({ theme }) => theme.colors["orange-dark"]};
 `;

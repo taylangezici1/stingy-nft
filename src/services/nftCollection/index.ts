@@ -11,6 +11,20 @@ export class NftCollectionService {
     this.openeseaService = new OpenseaService();
   }
 
+  public async fetchCollection(
+    collectionSlug: string
+  ): Promise<INftCollection> {
+    const collection = await this.getCollection(collectionSlug);
+
+    if (!collection.assetsFetched) {
+      const nfts = await this.openeseaService.getNfts(collection); //TODO: find a solution for this
+      await this.mongoNftCollectionsService.updateAssetsFetched(collection.id);
+      return { ...collection };
+    }
+
+    return collection;
+  }
+
   public async getCollection(collectionSlug: string): Promise<INftCollection> {
     const collection = await this.mongoNftCollectionsService.where({
       slug: collectionSlug,

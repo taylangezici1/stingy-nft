@@ -7,7 +7,11 @@ import { INftCollection } from "@/types";
 import { Card } from "@/components";
 
 export const DashboardPage: React.FC = () => {
-  const { data, isLoading, isError } = useQuery(["collections"], async () => {
+  const {
+    data: collections,
+    isLoading,
+    isError,
+  } = useQuery(["collections"], async () => {
     const { data } = await axios.get<{ collections: INftCollection[] }>(
       "http://localhost:3000/api/collections"
     );
@@ -28,9 +32,11 @@ export const DashboardPage: React.FC = () => {
         <S.MyCollectionsHeader>
           <S.MyCollectionsTitle>My Collections</S.MyCollectionsTitle>
         </S.MyCollectionsHeader>
-        {data.map((collection) => (
-          <MyCollectionsCard key={collection.slug} collection={collection} />
-        ))}
+        <S.MyCollectionsBody>
+          {collections.map((collection) => (
+            <MyCollectionsCard key={collection.slug} collection={collection} />
+          ))}
+        </S.MyCollectionsBody>
       </S.MyCollectionsContainer>
     </S.Container>
   );
